@@ -7,54 +7,22 @@ Hamburguer      103     R$ 1,20
 Chesseburguer   104     R$ 1,30
 Refrigerante    105     R$ 1,00
 
-Faça um programa que leia o código dos itnes pedidos e as quantidades desejadas.
-Calcule e mostre o valor a ser pago por item (preço * quantidade) e o total geral do pedido.
-O pedido é encerrado quando o cliente digitar o codigo 999.
-Controlar para que o cliente só possa digitar os codigos do menu
+>Faça um programa que leia o código dos itens pedidos e as quantidades desejadas.
+>Calcule e mostre o valor a ser pago por item (preço * quantidade) e o total geral do pedido.
+>O pedido é encerrado quando o cliente digitar o codigo 999.
+>Controlar para que o cliente só possa digitar os codigos do menu (não pode aceitar letra).
+
+
 
 cod 100     15      115,00
 cod 101     10      100,00
 
 valor total 215,00*/
 
-/* adicionar um banco com as informações de valores
-aceitar apenas os códigos ditos ali, outros voltar ao menu ou não aceitar (mensagens: Qual código do produto desejado? Qual quantidade desejada?)
-apresentar o valor final do código pedido com a quantidade.*/
-
-
-/*let Cachorro Quente 100  = 1.20;
-Bauru Simples   101  = 1.30;
-Bauro com Ovo   102  = 1.50;
-Hamburguer      103  = 1.20;
-Chesseburguer   104  = 1.30;
-Refrigerante    105  = 1.00;*/
 
 var prompt = require('prompt-sync')();
 
-let vetor =[];
-let i = 1;
-let j = 1;
-let l =1;
-
-/*let i = 0;
-let t = 0;
-let totalDaCompra = 0;
-let produto = 0;
-let v = 1;
-let lista = Array();*/
-
-do {
-    vetor[i] = Number(prompt('Código produto desejado: '));
-    vetor[j] = Number(prompt('Quantidade desejada:  '));
-     // total = (total + vetor[i]);
-
-    i++;
-} while (vetor [i-1] != 0)
-        
-console.log('O Código',vetor[i] ,'quantiadade', maiorPeso);
-
-var prompt = require('prompt-sync')();
-var card = {
+/*var card = {
     100 : 1.20,
     101 : 1.30,
     102 : 1.50,
@@ -63,8 +31,10 @@ var card = {
     105 : 1.00
 };
 var totalPedido = 0;
+
 while(true) {
-    var cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
+    let cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
+    
     if (cod === 999) {
         break;
     }
@@ -78,10 +48,30 @@ while(true) {
         console.log('Código inválido. Tente novamente.');
     }
 }
+console.log(`Total geral a ser pago: R$ ${totalPedido}`);*/
 
-console.log(`Total geral a ser pago: R$ ${totalPedido}`);
 
+var totalPedido = 0;
 
-/*console.log(`Código: ${cod} - Quantidade: ${quant} - Valor a ser pago: R$ ${valorItem}`);
-        totalPedido += valorItem;*/
-        
+while(true) {
+    let cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
+    if (cod === 999) {
+        break;
+    } switch(cod){
+        case 100 : //digitar o que eu quero aqui dentro
+        let quant = Number(prompt('Digite a quantidade desejada: '));
+         quant === Number;
+     // cachorro_quente = 100;
+            break;
+        case 101 : 
+            bauru_simples = 101;
+            break;
+        case 102 :
+            bauro_com_ovo =  102;
+            break;
+        case 999 :
+            return "Operação finalizada";
+             
+    }
+    //    console.log('Código inválido. Tente novamente.'); 
+   }
