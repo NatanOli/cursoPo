@@ -80,4 +80,8 @@ while(true) {
 }
 
 console.log(`Total geral a ser pago: R$ ${totalPedido.toFixed(2)}`);
+
+
+/*console.log(`Código ${cod} - Valor a ser pago: R$ ${valorItem.toFixed(2)}`);
+        totalPedido += valorItem;*/
         
