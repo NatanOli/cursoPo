@@ -56,32 +56,32 @@ console.log('O Código',vetor[i] ,'quantiadade', maiorPeso);
 var prompt = require('prompt-sync')();
 var card = {
     100 : 1.20,
-    101 : 1,30,
+    101 : 1.30,
     102 : 1.50,
     103 : 1.20,
     104 : 1.30,
     105 : 1.00
 };
-let totalPedido = 0;
+var totalPedido = 0;
 while(true) {
-    let cod = parseInt(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
-    if (cod != 999) {
+    var cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
+    if (cod === 999) {
         break;
     }
     if (cod in card){
-        let quant = parseInt(prompt('Digite a quantidade desejada: '));
+        let quant = Number(prompt('Digite a quantidade desejada: '));
         let precoItem = card[cod];
         let valorItem = precoItem * quant;
-        console.log(`Valor a ser pago pelo item: R$ ${valorItem.toFixed(2)}`);
+        console.log(`Código: ${cod} - Quantidade: ${quant} - Valor a ser pago: R$ ${valorItem}`);
         totalPedido += valorItem;
     } else {
         console.log('Código inválido. Tente novamente.');
     }
 }
 
-console.log(`Total geral a ser pago: R$ ${totalPedido.toFixed(2)}`);
+console.log(`Total geral a ser pago: R$ ${totalPedido}`);
 
 
-/*console.log(`Código ${cod} - Valor a ser pago: R$ ${valorItem.toFixed(2)}`);
+/*console.log(`Código: ${cod} - Quantidade: ${quant} - Valor a ser pago: R$ ${valorItem}`);
         totalPedido += valorItem;*/
         
