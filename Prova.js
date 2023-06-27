@@ -22,7 +22,8 @@ valor total 215,00*/
 
 var prompt = require('prompt-sync')();
 
-/*var card = {
+
+var card = {
     100 : 1.20,
     101 : 1.30,
     102 : 1.50,
@@ -31,47 +32,32 @@ var prompt = require('prompt-sync')();
     105 : 1.00
 };
 var totalPedido = 0;
+let pedidos = [] //Para armanezar o vetor
 
 while(true) {
     let cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
-    
-    if (cod === 999) {
+        if (cod === 999) {
         break;
     }
-    if (cod in card){
-        let quant = Number(prompt('Digite a quantidade desejada: '));
+    if (!Number.isNaN(cod) && cod in card) {
+        let quant = parseInt(prompt('Digite a quantidade desejada: '));
+        if (!Number.isNaN(quant)) {
         let precoItem = card[cod];
         let valorItem = precoItem * quant;
         console.log(`Código: ${cod} - Quantidade: ${quant} - Valor a ser pago: R$ ${valorItem}`);
         totalPedido += valorItem;
+        pedidos.push({ codigo: cod, quantidade: quant, valor: valorItem });
+
+        } else {
+            console.log('Código inválido. Tente novamente.');
+        }
     } else {
         console.log('Código inválido. Tente novamente.');
     }
 }
-console.log(`Total geral a ser pago: R$ ${totalPedido}`);*/
+    for (let i = 0; i < pedidos.length; i++) {
+        console.log(`Código: ${pedidos[i].codigo} - Quantidade: ${pedidos[i].quantidade} - Valor a ser pago: R$ ${pedidos[i].valor.toFixed(2)}`);
+}
 
 
-var totalPedido = 0;
-
-while(true) {
-    let cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido : '));
-    if (cod === 999) {
-        break;
-    } switch(cod){
-        case 100 : //digitar o que eu quero aqui dentro
-        let quant = Number(prompt('Digite a quantidade desejada: '));
-         quant === Number;
-     // cachorro_quente = 100;
-            break;
-        case 101 : 
-            bauru_simples = 101;
-            break;
-        case 102 :
-            bauro_com_ovo =  102;
-            break;
-        case 999 :
-            return "Operação finalizada";
-             
-    }
-    //    console.log('Código inválido. Tente novamente.'); 
-   }
+console.log(`Total geral a ser pago: R$ ${totalPedido}`);
