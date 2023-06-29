@@ -47,7 +47,15 @@ while(true) {
         console.log(`Código: ${cod} - Quantidade: ${quant} - Valor a ser pago: R$ ${valorItem}`);
         totalPedido += valorItem;
         pedidos.push({ codigo: cod, quantidade: quant, valor: valorItem });
-
+        if (cod in codAgrupados) {
+            codAgrupados[cod].quantidade += quant;
+            codAgrupados[cod].valor += valorItem;
+        } else {
+            codAgrupados[cod] = {
+                quantidade: quant,
+                valor: valorItem
+            };
+        }
         } else {
             console.log('Código inválido. Tente novamente.');
         }
@@ -55,8 +63,8 @@ while(true) {
         console.log('Código inválido. Tente novamente.');
     }
 }
-    for (let i = 0; i < pedidos.length; i++) {
-        console.log(`Código: ${pedidos[i].codigo} - Quantidade: ${pedidos[i].quantidade} - Valor a ser pago: R$ ${pedidos[i].valor.toFixed(2)}`);
+for (let cod in codAgrupados) {
+    console.log(`Código: ${cod} - Quantidade Total: ${codAgrupados[cod].quantidade} - Valor Total a ser pago: R$ ${codAgrupados[cod].valor.toFixed(2)}`);
 }
 
 
